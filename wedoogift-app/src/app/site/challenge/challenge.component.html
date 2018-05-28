@@ -1,0 +1,51 @@
+<div class="storeBloc">
+
+  <form [formGroup]="shopForm">
+    <div class="row form-group">
+      <div class="col-12">
+        <label for="value" class="required">Montant désiré :</label>
+        <div class="row">
+            <input required type="number" id="value"  name="value" class="form-control col-11"  formControlName="value"
+                   [(ngModel)]="result.value">
+          <div class="col-1">
+            <i class="fa fa-plus-square changeBtn" title="Montant suivant" (click)="nextAmount()"></i>
+            <i class="fa fa-minus-square changeBtn" title="Montant précédent" (click)="previousAmount()"></i>
+          </div>
+        </div>
+
+
+        <div class="formErrorBloc">
+          <span #formError class="formError" *ngIf="shopForm.get('value').dirty && shopForm.get('value').errors?.required">
+            Veuillez renseigner ce champ</span>
+        </div>
+      </div>
+    </div>
+
+    <input class="bouton validBtn" type="submit" (click)="getResult()" value="Valider"/>
+  </form>
+
+  <div class="resultBloc">
+    <div *ngIf="!equal">
+      <span>Votre montant n'est pas disponible. Veuillez choisir un des montants proposé :</span><br>
+      <div class="row">
+        <div class="text-center col-6" *ngIf="floor">
+          <button class="bouton propBtn" (click)="changeAmount(floor)">{{floor.value}}</button>
+        </div>
+        <div class="text-center col-6" *ngIf="ceil">
+          <button class="bouton propBtn"  (click)="changeAmount(ceil)">{{ceil.value}}</button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="result.cards.length>0">
+      <span>Votre montant est composé des cartes suivantes :</span>
+      <ul>
+        <li *ngFor="let card of result.cards">{{card}} €</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+</div>
+

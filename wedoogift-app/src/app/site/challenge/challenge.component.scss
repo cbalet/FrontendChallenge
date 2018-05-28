@@ -1,0 +1,53 @@
+
+.storeBloc{
+  padding: 0 25%;
+
+  .bouton{
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  .bouton:hover{
+    box-shadow: 0 2px 6px grey;
+  }
+
+  .validBtn{
+    background: #ec4848;
+    color: white;
+    border: none;
+    padding: 0 15px;
+  }
+  .formError{
+    color: red;
+    margin-left: 30px;
+    font-style: italic;
+  }
+  .changeBtn:hover{
+    font-size: 19px;
+  }
+  .changeBtn{
+    cursor: pointer;
+    color: #ec4848;
+    font-size: 18px;
+  }
+  .resultBloc{
+    margin-top: 20px;
+    .propBtn{
+      margin: 10px 0;
+      padding: 0 30px;
+      color: #ec4848;
+      border: #ec4848 1px solid;
+    }
+  }
+
+
+
+}
+
+@media screen and (max-width: 700px) {
+  .storeBloc{
+    padding: 0 5%;
+  }
+}
+
+
+
