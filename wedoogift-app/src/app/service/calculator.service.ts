@@ -8,14 +8,20 @@ export class CalculatorService{
   constructor(private http: HttpClient) {
   }
 
+  /**
+   * Call calculator result
+   * @param {number} shopId
+   * @param {number} amount
+   * @returns {Observable<any>} equal / floor / ceil values
+   */
   getCalculatorResult(shopId: number, amount:number) : Observable<any>{
-    let headers = new HttpHeaders();
-    headers.append("Authorization", "tokenTest123");
-    const options = {
-      headers:headers,
-      withCredentials: true
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'tokenTest123'
+      })
     };
     return this.http
-      .get('/shop/'+shopId+'/search-combination?amount='+amount,options);
+      .get('/shop/'+shopId+'/search-combination?amount='+amount,httpOptions);
   }
 }

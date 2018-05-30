@@ -26,7 +26,7 @@ import {ChallengeComponent} from "./site/challenge/challenge.component";
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     AppRoutingModule
   ],
   providers: [
